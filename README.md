@@ -1,6 +1,6 @@
-# Jekyll Site
+# Manifest Marketing Site
 
-A basic Jekyll site with a "Hello World" page.
+The marketing site for manifest, running on www.madewithmanifest.com, utilizing Jekyll.
 
 ## Getting Started
 
@@ -20,4 +20,3 @@ A basic Jekyll site with a "Hello World" page.
 
 - Serve on a different port: `bundle exec jekyll serve --port 4001`
 - Serve on all interfaces: `bundle exec jekyll serve --host 0.0.0.0`
-# marketing
