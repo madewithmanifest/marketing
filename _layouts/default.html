@@ -34,17 +34,37 @@
             </a>
           </div>
           
-          <!-- Center Navigation Links -->
+          <!-- Center Navigation Links (Desktop) -->
           <div class="hidden md:flex space-x-8">
             <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Overview</a>
             <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Pricing</a>
             <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
           </div>
           
-          <!-- Right Navigation Links -->
-          <div class="flex items-center space-x-4">
+          <!-- Right Navigation Links (Desktop) -->
+          <div class="hidden md:flex items-center space-x-4">
             <a href="https://app.madewithmanifest.com/login" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Login</a>
             <a href="https://app.madewithmanifest.com/login?onboarding=1" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-200">Generate a SaaS app</a>
+          </div>
+          
+          <!-- Mobile CTA and Menu Button -->
+          <div class="flex md:hidden items-center space-x-3">
+            <a href="https://app.madewithmanifest.com/login?onboarding=1" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md text-xs font-medium transition duration-200">Get Started</a>
+            <button id="mobile-menu-button" class="text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-900">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden">
+          <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-b border-gray-200">
+            <a href="#" class="block px-3 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium">Overview</a>
+            <a href="#" class="block px-3 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium">Pricing</a>
+            <a href="#" class="block px-3 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium">About</a>
+            <a href="https://app.madewithmanifest.com/login" class="block px-3 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium">Login</a>
           </div>
         </div>
       </div>
@@ -74,6 +94,23 @@
       } else {
         // For other pages: always show border and shadow
         navbar.classList.add('border-b', 'border-gray-200', 'shadow-sm');
+      }
+      
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!navbar.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
       }
     </script>
   </body>
