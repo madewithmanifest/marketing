@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Terms of Service - Manifest
+description: Read our terms of service to understand your rights and responsibilities when using Manifest. Clear, fair terms for building your SaaS business.
 ---
 
 <div class="bg-gray-50 py-20">

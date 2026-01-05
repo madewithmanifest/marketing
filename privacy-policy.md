@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Privacy Policy - Manifest
+description: Your privacy matters. Learn how Manifest collects, uses, and protects your personal information. We're committed to transparency and data security.
 ---
 
 <div class="bg-gray-50 py-20">

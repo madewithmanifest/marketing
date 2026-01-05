@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Pricing - Manifest
+description: Choose the perfect plan for your SaaS journey. From hobby projects to professional businesses, Manifest offers transparent pricing with no hidden fees.
 ---
 
 <div class="bg-gray-50 py-20">

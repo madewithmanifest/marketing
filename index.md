@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Manifest - Turn your app idea into a profitable online business
+description: Transform your app idea into a thriving SaaS business. Manifest provides the tools, guidance, and community to help entrepreneurs build, launch, and grow successful software products.
 ---
 
 <style>

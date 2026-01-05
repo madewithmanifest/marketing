@@ -1,6 +1,7 @@
 ---
 layout: default
 title: About - Manifest
+description: Learn how Manifest empowers entrepreneurs and developers to build profitable SaaS businesses. Our mission is to make software entrepreneurship accessible to everyone.
 ---
 
 <div class="bg-gray-50 py-20">
