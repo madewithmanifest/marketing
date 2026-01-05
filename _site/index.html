@@ -23,7 +23,36 @@
     </script>
   </head>
   <body class="font-sans antialiased">
-    <style>
+    <!-- Fixed Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a href="/" class="flex items-center">
+              <img src="/assets/manifest-logo.svg" alt="Manifest" class="h-8 w-auto">
+            </a>
+          </div>
+          
+          <!-- Center Navigation Links -->
+          <div class="hidden md:flex space-x-8">
+            <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Features</a>
+            <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Pricing</a>
+            <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
+          </div>
+          
+          <!-- Right Navigation Links -->
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Login</a>
+            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-200">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Main Content with top padding to account for fixed nav -->
+    <div class="pt-16">
+      <style>
   body {
     overflow-x: hidden;
   }
@@ -54,8 +83,7 @@
           <img src="/assets/iphone-blue.png" alt="Stripe phone" class="absolute top-0 w-[105%]" style="left: 0px" />
           <!-- Text overlay on desktop image -->
           <div class="absolute inset-0 flex items-start justify-start p-8 pt-8 z-20">
-            <p class="text-white text-left font-semibold text-2xl font-mono px-2" style="z-index: 30;">
-              CRM specifically for electricians living in Michigan
+            <p id="typewriter-desktop" class="text-white text-left font-semibold text-2xl font-mono px-2" style="z-index: 30;">
             </p>
           </div>
       </div>
@@ -80,8 +108,7 @@
           <img src="/assets/iphone-blue.png" alt="Stripe phone" class="w-full px-4 mt-12" style="width: 120%;" />
           <!-- Text overlay on mobile image -->
           <div class="absolute inset-0 flex items-start justify-start px-12 pt-12 z-10">
-            <p class="px-6 text-white text-left font-semibold text-2xl font-mono" style="z-index: 20;">
-              CRM specifically for electricians living in Michigan
+            <p id="typewriter-mobile" class="px-6 text-white text-left font-semibold text-2xl font-mono" style="z-index: 20;">
             </p>
           </div>
         </div>
@@ -89,6 +116,53 @@
       </div>
     </div>
   </div>
+
+<!-- Include TypedJS Library -->
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+<script>
+  // Array of SaaS app ideas
+  const appIdeas = [
+    "CRM specifically for electricians living in Michigan",
+    "Project management tool for wedding planners", 
+    "Inventory tracker for small restaurant owners",
+    "Appointment booking system for pet groomers",
+    "Invoice generator for freelance graphic designers",
+    "Customer review manager for local dentists",
+    "Equipment rental platform for construction crews",
+    "Class scheduling app for yoga instructors",
+    "Lead tracker for real estate agents",
+    "Time tracking tool for consulting firms"
+  ];
+
+  // Initialize typewriter for desktop
+  if (document.getElementById('typewriter-desktop')) {
+    new Typed('#typewriter-desktop', {
+      strings: appIdeas,
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 2000,
+      startDelay: 1000,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
+  }
+
+  // Initialize typewriter for mobile
+  if (document.getElementById('typewriter-mobile')) {
+    new Typed('#typewriter-mobile', {
+      strings: appIdeas,
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 2000,
+      startDelay: 1000,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
+  }
+</script>
 
 
 
@@ -254,5 +328,6 @@
 
 </div>
 
+    </div>
   </body>
 </html>
