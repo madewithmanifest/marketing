@@ -24,7 +24,7 @@
   </head>
   <body class="font-sans antialiased">
     <!-- Fixed Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-200">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white z-50 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
@@ -54,5 +54,27 @@
     <div class="pt-16">
       {{ content }}
     </div>
+    
+    <script>
+      // Check if we're on the home page
+      const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
+      const navbar = document.getElementById('navbar');
+      
+      if (isHomePage) {
+        // For home page: start without border/shadow, add on scroll
+        navbar.classList.remove('border-b', 'border-gray-200', 'shadow-sm');
+        
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 0) {
+            navbar.classList.add('border-b', 'border-gray-200', 'shadow-sm');
+          } else {
+            navbar.classList.remove('border-b', 'border-gray-200', 'shadow-sm');
+          }
+        });
+      } else {
+        // For other pages: always show border and shadow
+        navbar.classList.add('border-b', 'border-gray-200', 'shadow-sm');
+      }
+    </script>
   </body>
 </html>

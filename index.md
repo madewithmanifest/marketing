@@ -10,6 +10,28 @@ title: Manifest - Turn your app idea into a profitable online business
 </style>
 
 
+<!-- White hero section -->
+<div class="bg-white relative overflow-hidden" style="padding-top: 80px; padding-bottom: 40px;">
+  
+  <div class="relative mx-auto w-full max-w-[800px] px-4 sm:px-0">
+    <div class="text-7xl text-center font-bold">
+      Generate a SaaS web app &amp; earn money while you sleep.
+    </div>
+    <div class="text-xl text-gray-800 text-center">
+      Build, publish, and sell fully-functioning apps that can accept payments immediately. No coding necessary.
+    </div>
+    <div class="text-center mt-8">
+      <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-200 shadow-lg hover:shadow-xl">
+        Generate your first SaaS web app
+        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+
 <div class="bg-gray-100 relative overflow-hidden" style="padding-top: 80px; padding-bottom: 40px;">
 
 

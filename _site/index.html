@@ -24,7 +24,7 @@
   </head>
   <body class="font-sans antialiased">
     <!-- Fixed Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-200">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white z-50 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
@@ -57,6 +57,28 @@
     overflow-x: hidden;
   }
 </style>
+
+<!-- White hero section -->
+<div class="bg-white relative overflow-hidden" style="padding-top: 80px; padding-bottom: 40px;">
+  
+  <div class="relative mx-auto w-full max-w-[800px] px-4 sm:px-0">
+    <div class="text-7xl text-center font-bold">
+      Generate a SaaS web app &amp; earn money while you sleep.
+    </div>
+    <div class="text-xl text-gray-800 text-center">
+      Build, publish, and sell fully-functioning apps that can accept payments immediately. No coding necessary.
+    </div>
+    <div class="text-center mt-8">
+      <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-200 shadow-lg hover:shadow-xl">
+        Generate your first SaaS web app
+        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+</div>
 
 <div class="bg-gray-100 relative overflow-hidden" style="padding-top: 80px; padding-bottom: 40px;">
 
@@ -329,5 +351,27 @@
 </div>
 
     </div>
+    
+    <script>
+      // Check if we're on the home page
+      const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
+      const navbar = document.getElementById('navbar');
+      
+      if (isHomePage) {
+        // For home page: start without border/shadow, add on scroll
+        navbar.classList.remove('border-b', 'border-gray-200', 'shadow-sm');
+        
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 0) {
+            navbar.classList.add('border-b', 'border-gray-200', 'shadow-sm');
+          } else {
+            navbar.classList.remove('border-b', 'border-gray-200', 'shadow-sm');
+          }
+        });
+      } else {
+        // For other pages: always show border and shadow
+        navbar.classList.add('border-b', 'border-gray-200', 'shadow-sm');
+      }
+    </script>
   </body>
 </html>
