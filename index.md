@@ -24,7 +24,7 @@ title: Manifest - Turn your app idea into a profitable online business
       </div>
       
       <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-gray-900 leading-tight">
-        Generate a <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">SaaS web app</span> & earn money while you sleep.
+        Generate a <span class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">SaaS web app</span> & earn money while you sleep.
       </h1>
       
       <p class="text-2xl sm:text-3xl text-gray-600 max-w-5xl mx-auto leading-relaxed">
