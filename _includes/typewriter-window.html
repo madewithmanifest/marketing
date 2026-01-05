@@ -1,0 +1,48 @@
+<!-- Double Window Component -->
+<!-- Usage: include double-window.html with parameters: left_bg_gradient, left_title, left_text_color, right_title, right_subtitle, image_src, image_position_top, image_container_width, image_left_offset, mobile_image_container_class, mobile_image_container_style, mobile_image_class, mobile_image_style -->
+
+<div class="relative mx-auto w-full max-w-[800px] px-4 md:px-0 my-24">
+    <div class="flex flex-col md:flex-row gap-6 relative">
+      <!-- Left container -->
+      <div class="w-full md:w-1/2 rounded-lg min-h-[350px] md:min-h-[800px] bg-gradient-to-b {{ include.left_bg_gradient | default: 'from-[#4C56C0] to-[#3F47A6]' }} flex items-center md:items-start">
+        <div class="w-full px-8 md:pt-12 md:px-12">
+          <div class="md:text-5xl font-bold text-center md:text-left text-4xl {{ include.left_text_color | default: 'text-white' }}">
+            {{ include.left_title }}
+          </div>
+          {% if include.left_subtitle %}
+          <div class="mt-3 text-xl text-center md:text-left {{ include.left_subtitle_color | default: 'text-white/80' }}">
+            {{ include.left_subtitle }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      
+      {% if include.image_src %}
+      <!-- Image positioned absolutely (desktop) -->
+      <div class="hidden md:block absolute right-0 z-10" style="bottom: -100px; top: 350px; width: 350px; right: 20px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 0 calc(100% - 100px));">
+          <img src="{{ include.image_src }}" alt="{{ include.image_alt | default: 'Feature image' }}" class="absolute top-0 w-[105%]" style="left: 0px">
+      </div>
+      {% endif %}
+      
+      <!-- Right container -->
+      <div class="w-full md:w-1/2 {{ include.right_bg | default: 'bg-white' }} rounded-lg max-h-[600px] sm:max-h-auto sm:min-h-[800px] relative overflow-hidden min-h-[400px]">
+        <div class="w-full px-8 pt-12 md:px-12">
+          <div class="md:text-3xl font-bold text-center md:text-left text-3xl {{ include.right_title_color | default: 'text-gray-900' }}">
+            {{ include.right_title }}
+          </div>
+          {% if include.right_subtitle %}
+          <div class="mt-3 text-gray-700 text-xl text-center md:text-left">
+            {{ include.right_subtitle }}
+          </div>
+          {% endif %}
+        </div>
+  
+        {% if include.image_src %}
+        <!-- Mobile image -->
+        <div class="md:hidden mt-4" style="">
+          <img src="{{ include.image_src }}" alt="{{ include.image_alt | default: 'Feature image' }}" class="w-full px-4 mt-12" style="{{ include.mobile_image_style | default: '' }}">
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
