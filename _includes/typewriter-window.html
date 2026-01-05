@@ -21,6 +21,12 @@
       <!-- Image positioned absolutely (desktop) -->
       <div class="hidden md:block absolute right-0 z-10" style="bottom: -100px; top: 350px; width: 350px; right: 20px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 0 calc(100% - 100px));">
           <img src="{{ include.image_src }}" alt="{{ include.image_alt | default: 'Feature image' }}" class="absolute top-0 w-[105%]" style="left: 0px">
+          <!-- Text overlay on desktop image -->
+          <div class="absolute inset-0 flex items-start justify-start p-8 pt-8 z-20">
+            <p class="text-white text-left font-semibold text-2xl font-mono px-2" style="z-index: 30;">
+              CRM specifically for electricians living in Michigan
+            </p>
+          </div>
       </div>
       {% endif %}
       
@@ -39,8 +45,14 @@
   
         {% if include.image_src %}
         <!-- Mobile image -->
-        <div class="md:hidden mt-4" style="">
+        <div class="md:hidden mt-4 relative" style="">
           <img src="{{ include.image_src }}" alt="{{ include.image_alt | default: 'Feature image' }}" class="w-full px-4 mt-12" style="{{ include.mobile_image_style | default: '' }}">
+          <!-- Text overlay on mobile image -->
+          <div class="absolute inset-0 flex items-start justify-start px-12 pt-12 z-10">
+            <p class="px-6 text-white text-left font-semibold text-2xl font-mono" style="z-index: 20;">
+              CRM specifically for electricians living in Michigan
+            </p>
+          </div>
         </div>
         {% endif %}
       </div>
