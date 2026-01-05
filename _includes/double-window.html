@@ -1,5 +1,5 @@
 <!-- Double Window Component -->
-<!-- Usage: include double-window.html with parameters: left_bg_gradient, left_title, left_text_color, right_title, right_subtitle, image_src, image_position_top, image_container_width, image_left_offset -->
+<!-- Usage: include double-window.html with parameters: left_bg_gradient, left_title, left_text_color, right_title, right_subtitle, image_src, image_position_top, image_container_width, image_left_offset, mobile_image_container_class, mobile_image_container_style, mobile_image_class, mobile_image_style -->
 
 <div class="relative mx-auto w-full max-w-[800px] px-4 md:px-0 my-24">
   <div class="flex flex-col md:flex-row gap-6 relative">
@@ -39,8 +39,8 @@
 
       {% if include.image_src %}
       <!-- Mobile image -->
-      <div class="md:hidden mt-4">
-        <img src="{{ include.image_src }}" alt="{{ include.image_alt | default: 'Feature image' }}" class="w-full">
+      <div class="md:hidden mt-4 {{ include.mobile_image_container_class | default: '' }}" style="{{ include.mobile_image_container_style | default: '' }}">
+        <img src="{{ include.image_src }}" alt="{{ include.image_alt | default: 'Feature image' }}" class="{{ include.mobile_image_class | default: 'w-full' }}" style="{{ include.mobile_image_style | default: '' }}">
       </div>
       {% endif %}
     </div>
