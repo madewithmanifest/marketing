@@ -13,14 +13,14 @@
     <meta property="og:title" content="Terms of Service - Manifest">
     <meta property="og:description" content="Read our terms of service to understand your rights and responsibilities when using Manifest. Clear, fair terms for building your SaaS business.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.madewithmanifest.com/terms-of-service.html">
-    <meta property="og:image" content="https://www.madewithmanifest.com/assets/social/FacebookOG.png">
+    <meta property="og:url" content="http://localhost:4000/terms-of-service.html">
+    <meta property="og:image" content="http://localhost:4000/assets/social/FacebookOG.png">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Terms of Service - Manifest">
     <meta name="twitter:description" content="Read our terms of service to understand your rights and responsibilities when using Manifest. Clear, fair terms for building your SaaS business.">
-    <meta name="twitter:image" content="https://www.madewithmanifest.com/assets/social/Twitter.png">
+    <meta name="twitter:image" content="http://localhost:4000/assets/social/Twitter.png">
     
     <!-- Additional Meta Tags for LinkedIn -->
     <meta property="og:image:width" content="1200">
@@ -45,33 +45,34 @@
   </head>
   <body class="font-sans antialiased">
     <!-- Fixed Navigation Bar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white z-50 transition-all duration-300">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <div class="flex-shrink-0">
-            <a href="/" class="flex items-center">
-              <img src="/assets/manifest-logo.svg" alt="Manifest" class="h-8 w-auto">
+            <a href="/" class="flex items-center relative">
+              <img id="nav-logo" src="/assets/manifest-logo.svg" alt="Manifest" class="h-8 w-auto transition-opacity duration-300">
+              <img id="nav-logo-white" src="/assets/manifest-logo-white.svg" alt="Manifest" class="h-8 w-auto absolute left-0 transition-opacity duration-300 opacity-0">
             </a>
           </div>
-          
+
           <!-- Center Navigation Links (Desktop) -->
-          <div class="hidden md:flex space-x-8">
-            <a href="/" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Overview</a>
-            <a href="/pricing" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Pricing</a>
-            <a href="/about" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
+          <div id="nav-links-center" class="hidden md:flex space-x-8">
+            <a href="/" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-300">Overview</a>
+            <a href="/pricing" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-300">Pricing</a>
+            <a href="/about" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-300">About</a>
           </div>
-          
+
           <!-- Right Navigation Links (Desktop) -->
-          <div class="hidden md:flex items-center space-x-4">
-            <a href="https://app.madewithmanifest.com/login" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Login</a>
-            <a href="https://app.madewithmanifest.com/login?onboarding=1" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-200">Generate a SaaS app</a>
+          <div id="nav-links-right" class="hidden md:flex items-center space-x-4">
+            <a href="https://app.madewithmanifest.com/login" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-300">Login</a>
+            <a href="https://app.madewithmanifest.com/login?onboarding=1" id="nav-cta" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-200">Generate a SaaS app</a>
           </div>
-          
+
           <!-- Mobile CTA and Menu Button -->
           <div class="flex md:hidden items-center space-x-3">
-            <a href="https://app.madewithmanifest.com/login?onboarding=1" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md text-xs font-medium transition duration-200">Get Started</a>
-            <button id="mobile-menu-button" class="text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-900">
+            <a href="https://app.madewithmanifest.com/login?onboarding=1" id="mobile-cta" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md text-xs font-medium transition duration-200">Get Started</a>
+            <button id="mobile-menu-button" class="text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition-colors duration-300">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
@@ -300,32 +301,74 @@
       // Check if we're on the home page
       const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
       const navbar = document.getElementById('navbar');
-      
+      const navLogo = document.getElementById('nav-logo');
+      const navLogoWhite = document.getElementById('nav-logo-white');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const mobileMenuBtn = document.getElementById('mobile-menu-button');
+      const navCta = document.getElementById('nav-cta');
+      const mobileCta = document.getElementById('mobile-cta');
+
+      function setNavbarScrolled() {
+        navbar.classList.add('bg-white', 'shadow-sm');
+        navLogo.classList.remove('opacity-0');
+        navLogo.classList.add('opacity-100');
+        navLogoWhite.classList.remove('opacity-100');
+        navLogoWhite.classList.add('opacity-0');
+        navLinks.forEach(link => {
+          link.classList.remove('text-white', 'hover:text-blue-100');
+          link.classList.add('text-gray-700', 'hover:text-gray-900');
+        });
+        mobileMenuBtn.classList.remove('text-white', 'hover:text-blue-100');
+        mobileMenuBtn.classList.add('text-gray-700', 'hover:text-gray-900');
+        navCta.classList.remove('bg-white', 'text-blue-700', 'hover:bg-blue-50');
+        navCta.classList.add('bg-blue-600', 'hover:bg-blue-700', 'text-white');
+        mobileCta.classList.remove('bg-white', 'text-blue-700', 'hover:bg-blue-50');
+        mobileCta.classList.add('bg-blue-600', 'hover:bg-blue-700', 'text-white');
+      }
+
+      function setNavbarTop() {
+        navbar.classList.remove('bg-white', 'shadow-sm');
+        navLogo.classList.remove('opacity-100');
+        navLogo.classList.add('opacity-0');
+        navLogoWhite.classList.remove('opacity-0');
+        navLogoWhite.classList.add('opacity-100');
+        navLinks.forEach(link => {
+          link.classList.remove('text-gray-700', 'hover:text-gray-900');
+          link.classList.add('text-white', 'hover:text-blue-100');
+        });
+        mobileMenuBtn.classList.remove('text-gray-700', 'hover:text-gray-900');
+        mobileMenuBtn.classList.add('text-white', 'hover:text-blue-100');
+        navCta.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'text-white');
+        navCta.classList.add('bg-white', 'text-blue-700', 'hover:bg-blue-50');
+        mobileCta.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'text-white');
+        mobileCta.classList.add('bg-white', 'text-blue-700', 'hover:bg-blue-50');
+      }
+
       if (isHomePage) {
-        // For home page: start without border/shadow, add on scroll
-        navbar.classList.remove('border-b', 'border-gray-200', 'shadow-sm');
-        
+        // For home page: start with transparent navbar with light text
+        setNavbarTop();
+
         window.addEventListener('scroll', function() {
-          if (window.scrollY > 0) {
-            navbar.classList.add('border-b', 'border-gray-200', 'shadow-sm');
+          if (window.scrollY > 50) {
+            setNavbarScrolled();
           } else {
-            navbar.classList.remove('border-b', 'border-gray-200', 'shadow-sm');
+            setNavbarTop();
           }
         });
       } else {
-        // For other pages: always show border and shadow
-        navbar.classList.add('border-b', 'border-gray-200', 'shadow-sm');
+        // For other pages: always show white navbar with border and shadow
+        setNavbarScrolled();
       }
-      
+
       // Mobile menu toggle
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
-      
+
       if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', function() {
           mobileMenu.classList.toggle('hidden');
         });
-        
+
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
           if (!navbar.contains(event.target)) {
