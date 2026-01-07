@@ -8,11 +8,29 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
   body {
     overflow-x: hidden;
   }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animated-gradient {
+    background: linear-gradient(-45deg, #5186ED, #416CC0, #4f6de0, #3a5cb8, #5c8df0, #4C56C0);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
 </style>
 
 
 <!-- Blue gradient hero section -->
-<div class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden min-h-screen flex items-center -mt-16 pt-16">
+<div class="animated-gradient relative overflow-hidden min-h-screen flex items-center -mt-16 pt-16">
 
   <div class="relative mx-auto w-full max-w-[900px] px-4 sm:px-0 py-20">
     <div class="text-center space-y-8 mb-16">
@@ -153,7 +171,7 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
 %}
 
 <!-- double window with stripe image on right -->
-{% include double-window.html 
+{% include double-window.html
   left_bg_gradient="from-[#4C56C0] to-[#3F47A6]"
   left_title="Subscriptions baked into every app you build."
   left_text_color="text-white"
@@ -164,5 +182,27 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
   image_position_top="350px"
 %}
 
+<!-- Final CTA Section -->
+<div class="relative mx-auto w-full max-w-[900px] px-4 sm:px-0 py-24">
+  <div class="text-center space-y-8">
+    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+      Ready to bring your idea to life?
+    </h2>
+    <p class="text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto">
+      Join the entrepreneurs who are turning their ideas into thriving SaaS businesses.
+    </p>
+    <div class="pt-4">
+      <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-10 py-5 rounded-lg text-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+        Start building for free
+        <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+      <p class="mt-4 text-sm text-gray-500">
+        No credit card required
+      </p>
+    </div>
+  </div>
+</div>
 
 </div>
