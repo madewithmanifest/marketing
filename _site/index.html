@@ -112,7 +112,7 @@
   }
 
   .animated-gradient {
-    background: linear-gradient(-45deg, #5186ED, #416CC0, #4f6de0, #3a5cb8, #5c8df0, #4C56C0);
+    background: linear-gradient(-45deg, #0a0a0a, #121212, #0d0d0d, #141414, #080808, #161616);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
   }
@@ -120,6 +120,9 @@
 
 <!-- Blue gradient hero section -->
 <div class="animated-gradient relative overflow-hidden min-h-screen flex items-center -mt-16 pt-16">
+
+  <!-- Background image overlay -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('/assets/saas-ipad.png'); background-size: cover; background-position: center;"></div>
 
   <div class="relative mx-auto w-full max-w-[900px] px-4 sm:px-0 py-20">
     <div class="text-center space-y-8 mb-16">
@@ -135,12 +138,12 @@
         Generate a <span class="bg-gradient-to-r from-green-300 to-emerald-400 bg-clip-text text-transparent">SaaS web app</span> &amp; earn money while you sleep.
       </h1>
 
-      <p class="text-2xl sm:text-3xl text-blue-100 max-w-5xl mx-auto leading-relaxed">
+      <p class="text-2xl sm:text-3xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
         Build, publish, and launch fully-functioning apps that attract paying subscribers. <span class="font-semibold text-white">No coding necessary.</span>
       </p>
       
       <!-- Social proof -->
-      <div class="flex items-center justify-center space-x-6 text-sm text-blue-100 pt-4">
+      <div class="flex items-center justify-center space-x-6 text-sm text-gray-300 pt-4">
         <div class="flex items-center">
           <svg class="w-4 h-4 mr-1 text-green-300" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
@@ -163,7 +166,7 @@
     </div>
     
     <div class="text-center">
-      <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-10 py-5 rounded-lg text-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+      <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-white hover:bg-gray-100 text-gray-900 font-semibold px-10 py-5 rounded-lg text-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
         Generate your first SaaS web app
         <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -171,7 +174,7 @@
       </a>
 
       <!-- Additional CTA info -->
-      <p class="mt-4 text-sm text-blue-200">
+      <p class="mt-4 text-sm text-gray-400">
         Free to start • No credit card required
       </p>
     </div>
@@ -244,57 +247,118 @@
 <script>
   // Array of SaaS app ideas
   const appIdeas = [
-    "CRM specifically for electricians living in Michigan",
-    "Project management tool for wedding planners",
-    "Inventory tracker for small restaurant owners",
-    "Appointment booking system for pet groomers",
-    "Invoice generator for freelance graphic designers",
-    "Customer review manager for local dentists",
-    "Equipment rental platform for construction crews",
-    "Class scheduling app for yoga instructors",
-    "Lead tracker for real estate agents",
-    "Time tracking tool for consulting firms",
-    "Shift scheduler for independent craft breweries",
-    "Chemical application logger for lawn care companies",
-    "Patient intake portal for independent chiropractors",
-    "Menu cost calculator for food truck operators",
-    "Membership manager for local climbing gyms",
-    "Permit tracking dashboard for general contractors",
-    "Student progress tracker for private music teachers",
-    "Fleet maintenance logger for local delivery companies",
-    "Subcontractor compliance tracker for home builders",
-    "Client portal for boutique interior designers",
-    "Subscription billing manager for specialized CSA farms",
-    "Batch tracking system for artisanal soap makers",
-    "Event registration tool for non-profit fundraisers",
-    "Case management software for solo immigration attorneys",
-    "Safety audit checklist app for warehouse managers",
-    "Pre-order management system for cottage food bakeries",
-    "Availability calendar for freelance set designers",
-    "Maintenance request portal for small-scale landlords",
-    "Proposal builder for commercial landscaping bids",
-    "Liability waiver manager for mobile axe throwing businesses",
-    "Ingredient allergen analyzer for independent cafes",
-    "Field report generator for environmental consultants",
-    "Booking and waiver system for local escape rooms",
-    "Portfolio builder for specialized voice-over artists",
-    "Waste management tracker for green-certified restaurants",
-    "Inventory and sales tracker for vintage clothing resellers",
-    "Commission calculator for independent art galleries",
-    "Volunteer coordinator app for local animal shelters",
-    "Energy audit reporter for HVAC technicians",
-    "Grant application tracker for academic researchers",
-    "Route optimization tool for pool cleaning services",
-    "Multi-platform listing manager for antique dealers",
-    "Digital lookbook and client manager for personal stylists",
-    "Repair ticket system for independent bike shops",
-    "Curriculum planner for homeschool co-ops",
-    "Site inspection app for commercial roofers",
-    "Audition tracker for professional musical theater actors",
-    "Compliance reporter for New York food waste laws",
-    "Direct-mail campaign manager for local orthodontists",
-    "Asset tracker for high-end camera rental houses"
-  ];
+  "CRM specifically for electricians living in Michigan",
+  "Project management tool for wedding planners",
+  "Inventory tracker for small restaurant owners",
+  "Appointment booking system for pet groomers",
+  "Invoice generator for freelance graphic designers",
+  "Customer review manager for local dentists",
+  "Equipment rental platform for construction crews",
+  "Class scheduling app for yoga instructors",
+  "Lead tracker for real estate agents",
+  "Time tracking tool for consulting firms",
+  "Shift scheduler for independent craft breweries",
+  "Chemical application logger for lawn care companies",
+  "Patient intake portal for independent chiropractors",
+  "Menu cost calculator for food truck operators",
+  "Membership manager for local climbing gyms",
+  "Permit tracking dashboard for general contractors",
+  "Student progress tracker for private music teachers",
+  "Fleet maintenance logger for local delivery companies",
+  "Subcontractor compliance tracker for home builders",
+  "Client portal for boutique interior designers",
+  "Subscription billing manager for specialized CSA farms",
+  "Batch tracking system for artisanal soap makers",
+  "Event registration tool for non-profit fundraisers",
+  "Case management software for solo immigration attorneys",
+  "Safety audit checklist app for warehouse managers",
+  "Pre-order management system for cottage food bakeries",
+  "Availability calendar for freelance set designers",
+  "Maintenance request portal for small-scale landlords",
+  "Proposal builder for commercial landscaping bids",
+  "Liability waiver manager for mobile axe throwing businesses",
+  "Ingredient allergen analyzer for independent cafes",
+  "Field report generator for environmental consultants",
+  "Booking and waiver system for local escape rooms",
+  "Portfolio builder for specialized voice-over artists",
+  "Waste management tracker for green-certified restaurants",
+  "Inventory and sales tracker for vintage clothing resellers",
+  "Commission calculator for independent art galleries",
+  "Volunteer coordinator app for local animal shelters",
+  "Energy audit reporter for HVAC technicians",
+  "Grant application tracker for academic researchers",
+  "Route optimization tool for pool cleaning services",
+  "Multi-platform listing manager for antique dealers",
+  "Digital lookbook and client manager for personal stylists",
+  "Repair ticket system for independent bike shops",
+  "Curriculum planner for homeschool co-ops",
+  "Site inspection app for commercial roofers",
+  "Audition tracker for professional musical theater actors",
+  "Compliance reporter for New York food waste laws",
+  "Direct-mail campaign manager for local orthodontists",
+  "Asset tracker for high-end camera rental houses",
+  "Digital sheet music organizer for church choir directors",
+  "Pesticide application log for organic vineyard owners",
+  "Guest list and seating chart manager for gala organizers",
+  "Maintenance logger for private aircraft mechanics",
+  "Subscription management for local coffee roasters",
+  "Performance analytics for high-school sports scouts",
+  "Inventory tracker for hobbyist trading card sellers",
+  "Rental agreement manager for Airbnb co-hosts",
+  "Patient referral tracker for physical therapists",
+  "Lesson billing app for independent swim instructors",
+  "Daily log app for center-based childcare providers",
+  "Equipment checkout system for high school AV departments",
+  "Itinerary builder for luxury travel consultants",
+  "Recipe scaling tool for commercial bakeries",
+  "Compliance tracker for short-term rental regulations in coastal towns",
+  "Bio-waste disposal logger for tattoo parlors",
+  "Consignment payout tracker for luxury handbag resellers",
+  "Project estimator for custom cabinetry shops",
+  "Skill-building tracker for apprentice electricians",
+  "Availability calendar for local Santa performers and mascots",
+  "Donor management system for local historical societies",
+  "Mobile-first inspection app for septic tank inspectors",
+  "Course management for firearm safety instructors",
+  "Lead magnet builder for mortgage brokers",
+  "Inventory manager for specialized medical supply distributors",
+  "Incident reporting tool for security guard firms",
+  "Client measurement logger for bespoke tailors",
+  "Portfolio and booking tool for muralists",
+  "Water usage tracker for California farmers",
+  "Digital menu board manager for dispensaries",
+  "Scholarship application manager for local rotary clubs",
+  "Service history logger for commercial elevator technicians",
+  "Grooming record system for professional show dog handlers",
+  "Legal research organizer for paralegals",
+  "Rental demand heat map for property managers in college towns",
+  "Inventory and grading tracker for coin collectors",
+  "Shift swap board for nurses in private hospitals",
+  "Customer loyalty program for local juice bars",
+  "Asset management for small-town libraries",
+  "Permit expeditor for solar panel installers",
+  "Wedding dress alteration tracker for bridal boutiques",
+  "Sound library manager for indie game sound designers",
+  "Carbon footprint tracker for sustainable fashion startups",
+  "Delivery route planner for local florist shops",
+  "Membership portal for local maker-spaces",
+  "Safety certification tracker for forklift operators",
+  "Performance feedback app for youth soccer coaches",
+  "Inventory and pricing tool for farmers market vendors",
+  "Client intake and progress logger for speech therapists",
+  "Waste audit tool for plastic-free grocery stores"
+];
+
+  // Shuffle array using Fisher-Yates algorithm
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  shuffleArray(appIdeas);
 
   // Initialize typewriter for desktop
   if (document.getElementById('typewriter-desktop')) {

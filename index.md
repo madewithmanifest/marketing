@@ -22,7 +22,7 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
   }
 
   .animated-gradient {
-    background: linear-gradient(-45deg, #5186ED, #416CC0, #4f6de0, #3a5cb8, #5c8df0, #4C56C0);
+    background: linear-gradient(-45deg, #0a0a0a, #121212, #0d0d0d, #141414, #080808, #161616);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
   }
@@ -31,6 +31,9 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
 
 <!-- Blue gradient hero section -->
 <div class="animated-gradient relative overflow-hidden min-h-screen flex items-center -mt-16 pt-16">
+
+  <!-- Background image overlay -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('/assets/saas-ipad.png'); background-size: cover; background-position: center;"></div>
 
   <div class="relative mx-auto w-full max-w-[900px] px-4 sm:px-0 py-20">
     <div class="text-center space-y-8 mb-16">
@@ -46,12 +49,12 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
         Generate a <span class="bg-gradient-to-r from-green-300 to-emerald-400 bg-clip-text text-transparent">SaaS web app</span> & earn money while you sleep.
       </h1>
 
-      <p class="text-2xl sm:text-3xl text-blue-100 max-w-5xl mx-auto leading-relaxed">
+      <p class="text-2xl sm:text-3xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
         Build, publish, and launch fully-functioning apps that attract paying subscribers. <span class="font-semibold text-white">No coding necessary.</span>
       </p>
       
       <!-- Social proof -->
-      <div class="flex items-center justify-center space-x-6 text-sm text-blue-100 pt-4">
+      <div class="flex items-center justify-center space-x-6 text-sm text-gray-300 pt-4">
         <div class="flex items-center">
           <svg class="w-4 h-4 mr-1 text-green-300" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
@@ -74,7 +77,7 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
     </div>
     
     <div class="text-center">
-      <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-10 py-5 rounded-lg text-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+      <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-white hover:bg-gray-100 text-gray-900 font-semibold px-10 py-5 rounded-lg text-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
         Generate your first SaaS web app
         <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -82,7 +85,7 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
       </a>
 
       <!-- Additional CTA info -->
-      <p class="mt-4 text-sm text-blue-200">
+      <p class="mt-4 text-sm text-gray-400">
         Free to start • No credit card required
       </p>
     </div>
