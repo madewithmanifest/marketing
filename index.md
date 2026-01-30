@@ -46,7 +46,7 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
       </div>
 
       <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-white leading-tight">
-        Generate a <span class="bg-gradient-to-r from-green-300 to-emerald-400 bg-clip-text text-transparent">SaaS web app</span> & earn money while you sleep.
+        Generate a <span class="bg-gradient-to-r from-green-300 to-emerald-400 bg-clip-text text-transparent">SaaS web app</span> that earns money while you sleep.
       </h1>
 
       <p class="text-2xl sm:text-3xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
