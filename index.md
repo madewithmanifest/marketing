@@ -61,6 +61,56 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
     transform: scale(1.05);
     z-index: 20;
   }
+
+  /* Showcase Modal */
+  .showcase-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(4px);
+  }
+
+  .showcase-modal.active {
+    display: flex;
+  }
+
+  .showcase-modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+  .showcase-modal-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .showcase-modal-info {
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .showcase-modal-close {
+    position: absolute;
+    top: -48px;
+    right: 0;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    line-height: 1;
+  }
+
+  .showcase-modal-close:hover {
+    opacity: 1;
+  }
 </style>
 
 
@@ -669,6 +719,18 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
   </div>
 </div>
 
+<!-- Showcase Modal -->
+<div id="showcaseModal" class="showcase-modal">
+  <div class="showcase-modal-content">
+    <span class="showcase-modal-close">&times;</span>
+    <img id="showcaseModalImg" src="" alt="">
+    <div class="showcase-modal-info">
+      <span id="showcaseModalPrice" class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-xl mb-2"></span>
+      <div id="showcaseModalName" class="text-white text-lg font-medium mt-2"></div>
+    </div>
+  </div>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const faqToggles = document.querySelectorAll('.faq-toggle');
@@ -684,6 +746,41 @@ document.addEventListener('DOMContentLoaded', function() {
       // Rotate icon
       icon.classList.toggle('rotate-180');
     });
+  });
+
+  // Showcase Modal
+  const modal = document.getElementById('showcaseModal');
+  const modalImg = document.getElementById('showcaseModalImg');
+  const modalPrice = document.getElementById('showcaseModalPrice');
+  const modalName = document.getElementById('showcaseModalName');
+  const closeBtn = document.querySelector('.showcase-modal-close');
+
+  document.querySelectorAll('.showcase-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const img = this.querySelector('img');
+      const price = this.querySelector('.text-lg.font-bold, span.font-bold').textContent;
+      const name = this.querySelector('.text-sm.font-medium').textContent;
+
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      modalPrice.textContent = price;
+      modalName.textContent = name;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
   });
 });
 </script>
