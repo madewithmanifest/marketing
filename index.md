@@ -26,6 +26,30 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
   }
+
+  /* Showcase Carousel */
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .showcase-track {
+    animation: scrollLeft 40s linear infinite;
+    width: fit-content;
+  }
+
+  .showcase-track:hover {
+    animation-play-state: paused;
+  }
+
+  .showcase-card {
+    transition: transform 0.3s ease;
+  }
+
+  .showcase-card:hover {
+    transform: scale(1.05);
+    z-index: 20;
+  }
 </style>
 
 
@@ -91,6 +115,174 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
     </div>
   </div>
 
+</div>
+
+<!-- Showcase Carousel Section -->
+<div class="bg-gray-900 py-16 overflow-hidden">
+  <div class="text-center mb-10 px-4">
+    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3">
+      Apps built with Manifest
+    </h2>
+    <p class="text-gray-400 text-lg">
+      Start generating revenue today with an app built for your niche!
+    </p>
+  </div>
+
+  <!-- Carousel Container -->
+  <div class="relative">
+    <!-- Gradient fade edges -->
+    <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-gray-900 to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-gray-900 to-transparent z-10 pointer-events-none"></div>
+
+    <!-- Scrolling track -->
+    <div class="showcase-track flex py-4">
+      <!-- First set of 8 cards -->
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-1.png" alt="AV Checkout" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$29/month</span>
+          <div class="text-white text-sm font-medium">AV Checkout - Equipment tracking for schools</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-2.png" alt="VoiceFlow" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$19/month</span>
+          <div class="text-white text-sm font-medium">VoiceFlow - AI audio for social media creators</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-3.png" alt="YogaFlow" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$39/month</span>
+          <div class="text-white text-sm font-medium">YogaFlow - Class scheduling for yoga studios</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-4.png" alt="Plan Every Day" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$12/month</span>
+          <div class="text-white text-sm font-medium">Plan Every Day - Calendar-first task manager</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-5.png" alt="Crescendo" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$24/month</span>
+          <div class="text-white text-sm font-medium">Crescendo - Progress tracker for music teachers</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-6.png" alt="EcoField" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$49/month</span>
+          <div class="text-white text-sm font-medium">EcoField - Field surveys for ecologists</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-7.png" alt="ClimbHub" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$79/month</span>
+          <div class="text-white text-sm font-medium">ClimbHub - Membership management for gyms</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-8.png" alt="Ultimate Scoreboard" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$15/month</span>
+          <div class="text-white text-sm font-medium">Ultimate Scoreboard - Digital scoreboard app</div>
+        </div>
+      </div>
+
+      <!-- Duplicate set for infinite scroll -->
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-1.png" alt="AV Checkout" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$29/month</span>
+          <div class="text-white text-sm font-medium">AV Checkout - Equipment tracking for schools</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-2.png" alt="VoiceFlow" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$19/month</span>
+          <div class="text-white text-sm font-medium">VoiceFlow - AI audio for social media creators</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-3.png" alt="YogaFlow" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$39/month</span>
+          <div class="text-white text-sm font-medium">YogaFlow - Class scheduling for yoga studios</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-4.png" alt="Plan Every Day" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$12/month</span>
+          <div class="text-white text-sm font-medium">Plan Every Day - Calendar-first task manager</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-5.png" alt="Crescendo" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$24/month</span>
+          <div class="text-white text-sm font-medium">Crescendo - Progress tracker for music teachers</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-6.png" alt="EcoField" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$49/month</span>
+          <div class="text-white text-sm font-medium">EcoField - Field surveys for ecologists</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-7.png" alt="ClimbHub" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$79/month</span>
+          <div class="text-white text-sm font-medium">ClimbHub - Membership management for gyms</div>
+        </div>
+      </div>
+
+      <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
+        <img src="/assets/showcase/site-8.png" alt="Ultimate Scoreboard" class="w-full h-52 sm:h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg mb-2">$15/month</span>
+          <div class="text-white text-sm font-medium">Ultimate Scoreboard - Digital scoreboard app</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="bg-gray-100 relative overflow-hidden" style="padding-top: 80px; padding-bottom: 40px;">
