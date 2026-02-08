@@ -400,8 +400,8 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
       <!-- Price Bubble -->
       <div id="priceBubble" class="price-bubble">
         <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wide">Your revenue</div>
-        <div class="text-2xl font-bold text-gray-900 mt-1">$29<span class="text-base font-medium text-gray-500">/month</span></div>
-        <div class="text-sm text-gray-600 mt-1">per subscriber</div>
+        <div id="priceAmount" class="text-2xl font-bold text-gray-900 mt-1">$29<span class="text-base font-medium text-gray-500">/month</span></div>
+        <div id="pricePerLabel" class="text-sm text-gray-600 mt-1">per store</div>
       </div>
       <div class="monitor-screen">
         <img id="heroImage" src="/assets/showcase/site-1.png" alt="Example SaaS app built with Manifest">
@@ -1022,49 +1022,58 @@ document.addEventListener('DOMContentLoaded', function() {
   const generatingOverlay = document.getElementById('generatingOverlay');
   const typewriterText = document.getElementById('typewriterText');
   const priceBubble = document.getElementById('priceBubble');
-  const priceAmount = priceBubble.querySelector('.text-2xl');
+  const priceAmount = document.getElementById('priceAmount');
+  const pricePerLabel = document.getElementById('pricePerLabel');
   const cursor = document.querySelector('.cursor');
 
   const showcaseApps = [
     {
       image: '/assets/showcase/site-1.png',
-      prompt: 'Create an app to help camera stores manage inventory. Charge $29/month per user.',
-      price: '$29'
+      prompt: 'Create an app to help camera stores manage inventory. Charge $29/month per store.',
+      price: '$29',
+      perLabel: 'per store'
     },
     {
       image: '/assets/showcase/site-2.png',
-      prompt: 'Build an AI audio tool for social media creators. Charge $19/month per user.',
-      price: '$19'
+      prompt: 'Build an AI audio tool for social media creators. Charge $19/month per creator.',
+      price: '$19',
+      perLabel: 'per creator'
     },
     {
       image: '/assets/showcase/site-3.png',
-      prompt: 'Create a class scheduling app for yoga studios. Charge $39/month per user.',
-      price: '$39'
+      prompt: 'Create a class scheduling app for yoga studios. Charge $39/month per studio.',
+      price: '$39',
+      perLabel: 'per studio'
     },
     {
       image: '/assets/showcase/site-4.png',
       prompt: 'Build a calendar-first task manager app. Charge $12/month per user.',
-      price: '$12'
+      price: '$12',
+      perLabel: 'per user'
     },
     {
       image: '/assets/showcase/site-5.png',
-      prompt: 'Create a progress tracker for music teachers. Charge $24/month per user.',
-      price: '$24'
+      prompt: 'Create a progress tracker for music teachers. Charge $24/month per teacher.',
+      price: '$24',
+      perLabel: 'per teacher'
     },
     {
       image: '/assets/showcase/site-6.png',
-      prompt: 'Build a field survey app for ecologists. Charge $49/month per user.',
-      price: '$49'
+      prompt: 'Build a field survey app for ecologists. Charge $49/month per researcher.',
+      price: '$49',
+      perLabel: 'per researcher'
     },
     {
       image: '/assets/showcase/site-7.png',
-      prompt: 'Create a membership management app for climbing gyms. Charge $79/month per user.',
-      price: '$79'
+      prompt: 'Create a membership management app for climbing gyms. Charge $79/month per gym.',
+      price: '$79',
+      perLabel: 'per gym'
     },
     {
       image: '/assets/showcase/site-8.png',
-      prompt: 'Build a digital scoreboard app for sports. Charge $15/month per user.',
-      price: '$15'
+      prompt: 'Build a digital scoreboard app for sports. Charge $15/month per school.',
+      price: '$15',
+      perLabel: 'per school'
     }
   ];
 
@@ -1121,9 +1130,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  function showPriceBubble(price) {
+  function showPriceBubble(price, perLabel) {
     generatingOverlay.classList.remove('visible');
     priceAmount.innerHTML = price + '<span class="text-base font-medium text-gray-500">/month</span>';
+    pricePerLabel.textContent = perLabel;
     priceBubble.classList.add('visible');
   }
 
@@ -1157,7 +1167,7 @@ document.addEventListener('DOMContentLoaded', function() {
     await waitForBlurAnimation();
 
     // Step 4: Show price bubble
-    showPriceBubble(app.price);
+    showPriceBubble(app.price, app.perLabel);
 
     // Show completed app for 3 seconds
     await new Promise(resolve => setTimeout(resolve, 3000));
