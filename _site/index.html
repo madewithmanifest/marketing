@@ -355,6 +355,14 @@
     transition: opacity 0.3s ease;
   }
 
+  /* On shorter viewports, align text towards top */
+  @media (max-height: 800px) {
+    .prompt-overlay {
+      align-items: flex-start;
+      padding-top: 12%;
+    }
+  }
+
   .prompt-overlay.hidden {
     opacity: 0;
     pointer-events: none;
@@ -885,6 +893,24 @@
       </div>
       
     </div>
+  </div>
+</div>
+
+<!-- CTA Section -->
+<div class="bg-gradient-to-br from-gray-900 to-gray-800 py-24">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">
+      Ready to build your SaaS?
+    </h2>
+    <p class="text-xl sm:text-2xl text-gray-300 mb-10">
+      Join the entrepreneurs who are turning their ideas into thriving SaaS businesses.
+    </p>
+    <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-white hover:bg-gray-100 text-gray-900 font-semibold px-10 py-5 rounded-lg text-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+      Start building free
+      <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      </svg>
+    </a>
   </div>
 </div>
 
