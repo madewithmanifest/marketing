@@ -111,69 +111,417 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
   .showcase-modal-close:hover {
     opacity: 1;
   }
+
+  /* Monitor Frame */
+  .monitor-frame {
+    background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+    border-radius: 16px;
+    padding: 12px 12px 40px 12px;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(0, 0, 0, 0.05),
+      0 -2px 0 rgba(255, 255, 255, 0.8) inset;
+    position: relative;
+  }
+
+  .monitor-frame::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 6px;
+    background: #d1d5db;
+    border-radius: 3px;
+  }
+
+  .monitor-screen {
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .monitor-screen {
+    position: relative;
+  }
+
+  .monitor-screen img {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+  }
+
+  .monitor-screen img.animating {
+    opacity: 1;
+    animation: clarify 0.7s ease-out forwards;
+  }
+
+  .monitor-screen img.loaded {
+    opacity: 1;
+    filter: none;
+  }
+
+  @keyframes clarify {
+    0% {
+      filter: blur(30px) saturate(0.5);
+      transform: scale(1.04);
+    }
+    100% {
+      filter: blur(0) saturate(1);
+      transform: scale(1);
+    }
+  }
+
+  /* Hero monitor responsive cutoff */
+  .hero-monitor {
+    margin-bottom: -60px;
+  }
+
+  @media (min-width: 640px) {
+    .hero-monitor {
+      margin-bottom: -100px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-monitor {
+      margin-bottom: -140px;
+    }
+  }
+
+  /* Price Bubble */
+  @keyframes floatBubble {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .price-bubble {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  .price-bubble.visible {
+    animation: popIn 0.4s ease-out forwards, floatBubble 3s ease-in-out 0.4s infinite;
+  }
+
+  .price-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 24px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    transform: rotate(45deg);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 640px) {
+    .price-bubble {
+      top: -16px;
+      right: -8px;
+      padding: 12px 16px;
+    }
+  }
+
+  /* Prompt Overlay */
+  .prompt-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 8px;
+    z-index: 5;
+    transition: opacity 0.3s ease;
+  }
+
+  .prompt-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .prompt-text {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 1.25rem;
+    color: #10b981;
+    padding: 2rem;
+    max-width: 80%;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .prompt-text .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: #10b981;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 0.8s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  /* Flash effect */
+  @keyframes flash {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .flash-overlay {
+    position: absolute;
+    inset: 0;
+    background: white;
+    border-radius: 8px;
+    opacity: 0;
+    z-index: 6;
+    pointer-events: none;
+  }
+
+  .flash-overlay.flash {
+    animation: flash 0.3s ease-out;
+  }
+
+  /* Generating overlay */
+  .generating-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .generating-overlay.visible {
+    opacity: 1;
+  }
+
+  .generating-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 16px 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @media (max-width: 640px) {
+    .prompt-text {
+      font-size: 1rem;
+      padding: 1.5rem;
+    }
+    .generating-text {
+      font-size: 1.25rem;
+    }
+  }
 </style>
 
 
 <!-- Light hero section -->
-<div class="animated-gradient relative overflow-hidden min-h-screen flex items-center -mt-16 pt-16">
+<div class="animated-gradient relative overflow-hidden -mt-16 pt-16 pb-0">
 
-  <div class="relative mx-auto w-full max-w-[900px] px-4 sm:px-0 py-20">
-    <div class="text-center space-y-8 mb-16">
-      <!-- Badge/tag -->
-      <div class="inline-flex items-center px-4 py-2 bg-gray-900/10 text-gray-700 rounded-full text-sm font-medium mb-4">
-        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
-        </svg>
-        The AI app builder for entrepreneurs.
-      </div>
-
-      <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-gray-900 leading-tight">
+  <div class="relative mx-auto w-full max-w-[900px] px-4 sm:px-0 pt-20 pb-4">
+    <div class="text-center">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
         Generate a <span class="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">SaaS web app</span> that earns money while you sleep.
       </h1>
-
-      <p class="text-2xl sm:text-3xl text-gray-600 max-w-5xl mx-auto leading-relaxed">
+      <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
         Build, publish, and launch fully-functioning apps that attract paying subscribers. <span class="font-semibold text-gray-900">No coding necessary.</span>
-      </p>
-
-      <!-- Social proof -->
-      <div class="flex items-center justify-center space-x-6 text-sm text-gray-600 pt-4">
-        <div class="flex items-center">
-          <svg class="w-4 h-4 mr-1 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-          </svg>
-          <span>Built in minutes</span>
-        </div>
-        <div class="flex items-center">
-          <svg class="w-4 h-4 mr-1 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-          </svg>
-          <span>Payments included</span>
-        </div>
-        <div class="flex items-center">
-          <svg class="w-4 h-4 mr-1 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-          </svg>
-          <span>Deploy instantly</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center">
-      <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-10 py-5 rounded-lg text-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-        Generate your first SaaS web app
-        <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-      </a>
-
-      <!-- Additional CTA info -->
-      <p class="mt-4 text-sm text-gray-500">
-        Free to start • No credit card required
       </p>
     </div>
   </div>
 
+  <!-- Hero Screenshot -->
+  <div class="hero-monitor relative z-0 max-w-7xl mx-auto px-4 sm:px-6 mt-8">
+    <div class="monitor-frame relative">
+      <!-- Price Bubble -->
+      <div id="priceBubble" class="price-bubble">
+        <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wide">Your revenue</div>
+        <div class="text-2xl font-bold text-gray-900 mt-1">$29<span class="text-base font-medium text-gray-500">/month</span></div>
+        <div class="text-sm text-gray-600 mt-1">per subscriber</div>
+      </div>
+      <div class="monitor-screen">
+        <img id="heroImage" src="/assets/showcase/site-1.png" alt="Example SaaS app built with Manifest">
+        <div id="promptOverlay" class="prompt-overlay">
+          <div class="prompt-text">
+            <span id="typewriterText"></span><span class="cursor"></span>
+          </div>
+        </div>
+        <div id="flashOverlay" class="flash-overlay"></div>
+        <div id="generatingOverlay" class="generating-overlay">
+          <div class="generating-text">
+            <span class="spinner"></span>
+            Generating App...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<!-- CTA Section -->
+<div class="bg-gray-100 relative z-10 pt-40 pb-16">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <p class="text-xl sm:text-2xl text-gray-700 leading-relaxed mb-8">
+      Describe your idea and watch it come to life in minutes.
+    </p>
+
+    <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-10 py-5 rounded-lg text-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+      Start building free
+      <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<div class="bg-gray-100 relative overflow-hidden z-10" style="padding-top: 80px; padding-bottom: 40px;">
+
+
+<!-- specify payment -->
+{% include typewriter-window.html 
+  left_bg_gradient="from-[#5186ED] to-[#416CC0]"
+  left_title="Describe what you want built."
+  left_text_color="text-white"
+  right_title="Manifest will convert it into a fully-functioning web app."
+  right_subtitle="No code necessary. The app will be ready for users to sign up, pay for access, and experience your incredible idea come-to-life!"
+  image_src="/assets/iphone-blue.png"
+  image_alt="Stripe phone"
+  image_position_top="350px"
+  image_container_width="45%"
+  image_left_offset="0px"
+  mobile_image_container_class="relative overflow-hidden"
+  mobile_image_container_style="margin-top: 40px; height: 500px;"
+  mobile_image_class="absolute top-0 right-[-5%]"
+  mobile_image_style="width: 120%;"
+%}
+
+
+
+
+<!-- specify payment -->
+{% include double-window.html 
+  left_bg_gradient="from-[#58A55D] to-[#478E4B]"
+  left_title="Set the price of your app."
+  left_text_color="text-white"
+  right_title="Specify when &amp; how much your users should pay to access your app."
+  right_subtitle="Monthly, annually, one-time or one time payments. Specify multiple tiers for different levels of functionality."
+  image_src="/assets/select-how-users-pay.png"
+  image_alt="Stripe phone"
+  image_position_top="400px"
+  image_container_width="50%"
+  image_left_offset="-5px"
+  mobile_image_container_class="relative overflow-hidden"
+  mobile_image_container_style="margin-top: 40px; height: 500px;"
+  mobile_image_class="absolute top-0 right-[-5%]"
+  mobile_image_style="width: 120%;"
+%}
+
+
+
+<!-- <div class="relative mx-auto w-full max-w-[800px] px-4 sm:px-0 my-24">
+  <div class="bg-white rounded-lg relative flex flex-col min-h-[480px] sm:min-h-[750px]">
+    
+    <div class="absolute mx-auto" style="width: 120%; left: -10%; top: -60px; z-index: 1;">
+      <img src="/assets/manifest-will-build-it.png" alt="Manifest will build it" class="w-full">
+    </div>
+    <div class="flex-grow"></div>
+    <div class="relative w-full py-12 px-8 sm:px-12 text-3xl sm:text-4xl font-bold text-center" style="z-index: 2;">
+      And Manifest’s AI will build it before your eyes.
+    </div>
+  </div>
+</div>
+ -->
+
+
+
+
+
+<!-- double window with stripe image on right -->
+{% include double-window.html 
+  left_bg_gradient="from-[#DAA939] to-[#B6923D]"
+  left_title="Database, storage, payments, log in &amp; more. <br /><br />All handled for you."
+  left_text_color="text-white"
+  right_title="No need to setup connections &amp; integrations."
+  right_subtitle="All the tricky stuff is taken care of automagically."
+  image_src="/assets/ipad-pick-plan.png"
+  image_alt="Stripe phone"
+  image_position_top="300px"
+  image_container_width="80%"
+  image_left_offset="235px"
+  mobile_image_container_class="relative overflow-hidden"
+  mobile_image_container_style="margin-top: 40px; height: 500px;"
+  mobile_image_class="absolute top-0 right-[-5%]"
+  mobile_image_style="width: 120%;"
+%}
+
+<!-- double window with stripe image on right -->
+{% include double-window.html
+  left_bg_gradient="from-[#4C56C0] to-[#3F47A6]"
+  left_title="Subscriptions baked into every app you build."
+  left_text_color="text-white"
+  right_title="Simply connect your Stripe account to start receiving payments."
+  right_subtitle="Money users pay you will go into your Stripe account, allowing you to transfer it out to your bank account."
+  image_src="/assets/purple-stripe.png"
+  image_alt="Stripe phone"
+  image_position_top="350px"
+%}
 
 <!-- Showcase Carousel Section -->
 <div class="bg-gray-100 py-16 overflow-hidden">
@@ -194,7 +542,6 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
 
     <!-- Scrolling track -->
     <div class="showcase-track flex py-4">
-      <!-- First set of 8 cards -->
       <div class="showcase-card flex-shrink-0 w-72 sm:w-96 mx-2 sm:mx-4 relative rounded-xl overflow-hidden shadow-2xl cursor-pointer">
         <img src="/assets/showcase/site-1.png" alt="AV Checkout" class="w-full h-52 sm:h-64 object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
@@ -491,98 +838,6 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
   </div>
 </div>
 
-<div class="bg-gray-100 relative overflow-hidden" style="padding-top: 80px; padding-bottom: 40px;">
-
-
-<!-- specify payment -->
-{% include typewriter-window.html 
-  left_bg_gradient="from-[#5186ED] to-[#416CC0]"
-  left_title="Describe what you want built."
-  left_text_color="text-white"
-  right_title="Manifest will convert it into a fully-functioning web app."
-  right_subtitle="No code necessary. The app will be ready for users to sign up, pay for access, and experience your incredible idea come-to-life!"
-  image_src="/assets/iphone-blue.png"
-  image_alt="Stripe phone"
-  image_position_top="350px"
-  image_container_width="45%"
-  image_left_offset="0px"
-  mobile_image_container_class="relative overflow-hidden"
-  mobile_image_container_style="margin-top: 40px; height: 500px;"
-  mobile_image_class="absolute top-0 right-[-5%]"
-  mobile_image_style="width: 120%;"
-%}
-
-
-
-
-<!-- specify payment -->
-{% include double-window.html 
-  left_bg_gradient="from-[#58A55D] to-[#478E4B]"
-  left_title="Set the price of your app."
-  left_text_color="text-white"
-  right_title="Specify when &amp; how much your users should pay to access your app."
-  right_subtitle="Monthly, annually, one-time or one time payments. Specify multiple tiers for different levels of functionality."
-  image_src="/assets/select-how-users-pay.png"
-  image_alt="Stripe phone"
-  image_position_top="400px"
-  image_container_width="50%"
-  image_left_offset="-5px"
-  mobile_image_container_class="relative overflow-hidden"
-  mobile_image_container_style="margin-top: 40px; height: 500px;"
-  mobile_image_class="absolute top-0 right-[-5%]"
-  mobile_image_style="width: 120%;"
-%}
-
-
-
-<!-- <div class="relative mx-auto w-full max-w-[800px] px-4 sm:px-0 my-24">
-  <div class="bg-white rounded-lg relative flex flex-col min-h-[480px] sm:min-h-[750px]">
-    
-    <div class="absolute mx-auto" style="width: 120%; left: -10%; top: -60px; z-index: 1;">
-      <img src="/assets/manifest-will-build-it.png" alt="Manifest will build it" class="w-full">
-    </div>
-    <div class="flex-grow"></div>
-    <div class="relative w-full py-12 px-8 sm:px-12 text-3xl sm:text-4xl font-bold text-center" style="z-index: 2;">
-      And Manifest’s AI will build it before your eyes.
-    </div>
-  </div>
-</div>
- -->
-
-
-
-
-
-<!-- double window with stripe image on right -->
-{% include double-window.html 
-  left_bg_gradient="from-[#DAA939] to-[#B6923D]"
-  left_title="Database, storage, payments, log in &amp; more. <br /><br />All handled for you."
-  left_text_color="text-white"
-  right_title="No need to setup connections &amp; integrations."
-  right_subtitle="All the tricky stuff is taken care of automagically."
-  image_src="/assets/ipad-pick-plan.png"
-  image_alt="Stripe phone"
-  image_position_top="300px"
-  image_container_width="80%"
-  image_left_offset="235px"
-  mobile_image_container_class="relative overflow-hidden"
-  mobile_image_container_style="margin-top: 40px; height: 500px;"
-  mobile_image_class="absolute top-0 right-[-5%]"
-  mobile_image_style="width: 120%;"
-%}
-
-<!-- double window with stripe image on right -->
-{% include double-window.html
-  left_bg_gradient="from-[#4C56C0] to-[#3F47A6]"
-  left_title="Subscriptions baked into every app you build."
-  left_text_color="text-white"
-  right_title="Simply connect your Stripe account to start receiving payments."
-  right_subtitle="Money users pay you will go into your Stripe account, allowing you to transfer it out to your bank account."
-  image_src="/assets/purple-stripe.png"
-  image_alt="Stripe phone"
-  image_position_top="350px"
-%}
-
 <!-- FAQ Section -->
 <div class="relative mx-auto w-full max-w-[800px] px-4 sm:px-0 py-24">
   <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">
@@ -730,6 +985,176 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Hero animation sequence
+  const heroImg = document.getElementById('heroImage');
+  const promptOverlay = document.getElementById('promptOverlay');
+  const flashOverlay = document.getElementById('flashOverlay');
+  const generatingOverlay = document.getElementById('generatingOverlay');
+  const typewriterText = document.getElementById('typewriterText');
+  const priceBubble = document.getElementById('priceBubble');
+  const priceAmount = priceBubble.querySelector('.text-2xl');
+  const cursor = document.querySelector('.cursor');
+
+  const showcaseApps = [
+    {
+      image: '/assets/showcase/site-1.png',
+      prompt: 'Create an app to help camera stores manage inventory. Charge $29/month per user.',
+      price: '$29'
+    },
+    {
+      image: '/assets/showcase/site-2.png',
+      prompt: 'Build an AI audio tool for social media creators. Charge $19/month per user.',
+      price: '$19'
+    },
+    {
+      image: '/assets/showcase/site-3.png',
+      prompt: 'Create a class scheduling app for yoga studios. Charge $39/month per user.',
+      price: '$39'
+    },
+    {
+      image: '/assets/showcase/site-4.png',
+      prompt: 'Build a calendar-first task manager app. Charge $12/month per user.',
+      price: '$12'
+    },
+    {
+      image: '/assets/showcase/site-5.png',
+      prompt: 'Create a progress tracker for music teachers. Charge $24/month per user.',
+      price: '$24'
+    },
+    {
+      image: '/assets/showcase/site-6.png',
+      prompt: 'Build a field survey app for ecologists. Charge $49/month per user.',
+      price: '$49'
+    },
+    {
+      image: '/assets/showcase/site-7.png',
+      prompt: 'Create a membership management app for climbing gyms. Charge $79/month per user.',
+      price: '$79'
+    },
+    {
+      image: '/assets/showcase/site-8.png',
+      prompt: 'Build a digital scoreboard app for sports. Charge $15/month per user.',
+      price: '$15'
+    }
+  ];
+
+  let currentAppIndex = 0;
+
+  function typeWriter(text, element, speed = 50) {
+    return new Promise(resolve => {
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else {
+          resolve();
+        }
+      }
+      type();
+    });
+  }
+
+  function resetState() {
+    // Reset all states for next cycle
+    typewriterText.textContent = '';
+    cursor.style.display = 'inline-block';
+    promptOverlay.classList.remove('hidden');
+    flashOverlay.classList.remove('flash');
+    generatingOverlay.classList.remove('visible');
+    heroImg.classList.remove('animating', 'loaded');
+    priceBubble.classList.remove('visible');
+  }
+
+  function flashAndSubmit() {
+    return new Promise(resolve => {
+      cursor.style.display = 'none';
+      promptOverlay.classList.add('hidden');
+      generatingOverlay.classList.add('visible');
+      heroImg.classList.add('animating');
+      flashOverlay.classList.add('flash');
+
+      setTimeout(() => {
+        resolve();
+      }, 300);
+    });
+  }
+
+  function waitForBlurAnimation() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        heroImg.classList.remove('animating');
+        heroImg.classList.add('loaded');
+        resolve();
+      }, 700);
+    });
+  }
+
+  function showPriceBubble(price) {
+    generatingOverlay.classList.remove('visible');
+    priceAmount.innerHTML = price + '<span class="text-base font-medium text-gray-500">/month</span>';
+    priceBubble.classList.add('visible');
+  }
+
+  function preloadImage(src) {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload = resolve;
+      img.src = src;
+    });
+  }
+
+  async function runAppCycle(app) {
+    // Update image source
+    heroImg.src = app.image;
+
+    // Wait for image to load
+    if (!heroImg.complete) {
+      await new Promise(resolve => heroImg.onload = resolve);
+    }
+
+    // Step 1: Typewriter effect
+    await typeWriter(app.prompt, typewriterText, 40);
+
+    // Brief pause after typing
+    await new Promise(resolve => setTimeout(resolve, 800));
+
+    // Step 2: Flash and submit
+    await flashAndSubmit();
+
+    // Step 3: Blur animation
+    await waitForBlurAnimation();
+
+    // Step 4: Show price bubble
+    showPriceBubble(app.price);
+
+    // Show completed app for 3 seconds
+    await new Promise(resolve => setTimeout(resolve, 3000));
+  }
+
+  async function runHeroSequence() {
+    // Preload all images
+    await Promise.all(showcaseApps.map(app => preloadImage(app.image)));
+
+    while (true) {
+      const app = showcaseApps[currentAppIndex];
+
+      await runAppCycle(app);
+
+      // Move to next app
+      currentAppIndex = (currentAppIndex + 1) % showcaseApps.length;
+
+      // Reset state for next cycle
+      resetState();
+
+      // Small delay before next cycle starts
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+  }
+
+  runHeroSequence();
+
   const faqToggles = document.querySelectorAll('.faq-toggle');
 
   faqToggles.forEach(toggle => {
