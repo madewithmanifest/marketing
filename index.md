@@ -427,15 +427,19 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
 <div class="bg-gray-100 relative z-10 pt-40 pb-16">
   <div class="max-w-3xl mx-auto px-4 text-center">
     <p class="text-xl sm:text-2xl text-gray-700 leading-relaxed mb-8">
-      Describe your idea and watch it come to life in minutes.
+      Start earning recurring revenue with your own SaaS app.
     </p>
 
     <a href="https://app.madewithmanifest.com/login?onboarding=1" class="inline-flex items-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-10 py-5 rounded-lg text-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-      Start building free
+      Build my first SaaS app
       <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
       </svg>
     </a>
+
+    <p class="mt-6 text-sm text-gray-500">
+      No coding required • Payments integrated • No credit card required
+    </p>
   </div>
 </div>
 
@@ -532,7 +536,7 @@ description: Transform your app idea into a thriving SaaS business. Manifest pro
 %}
 
 <!-- CTA Section -->
-<div class="bg-gradient-to-br from-gray-900 to-gray-800 py-24">
+<div class="bg-gradient-to-br from-gray-900 to-gray-800 py-32 my-16">
   <div class="max-w-3xl mx-auto px-4 text-center">
     <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">
       Ready to build your SaaS?
