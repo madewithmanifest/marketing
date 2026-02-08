@@ -52,7 +52,7 @@
           <div class="flex-shrink-0">
             <a href="/" class="flex items-center relative">
               <img id="nav-logo" src="/assets/manifest-logo.svg" alt="Manifest" class="h-8 w-auto transition-opacity duration-300">
-              <img id="nav-logo-white" src="/assets/manifest-logo-white.svg" alt="Manifest" class="h-8 w-auto absolute left-0 transition-opacity duration-300 opacity-0">
+              <img id="nav-logo-white-bg" src="/assets/manifest-logo-white-bg.svg" alt="Manifest" class="h-8 w-auto absolute left-0 transition-opacity duration-300 opacity-0">
             </a>
           </div>
 
@@ -307,7 +307,7 @@
       const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
       const navbar = document.getElementById('navbar');
       const navLogo = document.getElementById('nav-logo');
-      const navLogoWhite = document.getElementById('nav-logo-white');
+      const navLogoWhiteBg = document.getElementById('nav-logo-white-bg');
       const navLinks = document.querySelectorAll('.nav-link');
       const mobileMenuBtn = document.getElementById('mobile-menu-button');
       const navCta = document.getElementById('nav-cta');
@@ -315,46 +315,23 @@
 
       function setNavbarScrolled() {
         navbar.classList.add('bg-white', 'shadow-sm');
+        // Show regular logo, hide white-bg logo
         navLogo.classList.remove('opacity-0');
         navLogo.classList.add('opacity-100');
-        navLogoWhite.classList.remove('opacity-100');
-        navLogoWhite.classList.add('opacity-0');
-        navLinks.forEach(link => {
-          link.classList.remove('text-white', 'hover:text-blue-100');
-          link.classList.add('text-gray-700', 'hover:text-gray-900');
-        });
-        mobileMenuBtn.classList.remove('text-white', 'hover:text-blue-100');
-        mobileMenuBtn.classList.add('text-gray-700', 'hover:text-gray-900');
-        navCta.classList.remove('bg-white', 'text-blue-700', 'hover:bg-blue-50');
-        navCta.classList.add('bg-gray-900', 'hover:bg-gray-800', 'text-white');
-        mobileCta.classList.remove('bg-white', 'text-blue-700', 'hover:bg-blue-50');
-        mobileCta.classList.add('bg-gray-900', 'hover:bg-gray-800', 'text-white');
+        navLogoWhiteBg.classList.remove('opacity-100');
+        navLogoWhiteBg.classList.add('opacity-0');
       }
 
       function setNavbarTop() {
         navbar.classList.remove('bg-white', 'shadow-sm');
+        // Show white-bg logo, hide regular logo
         navLogo.classList.remove('opacity-100');
         navLogo.classList.add('opacity-0');
-        navLogoWhite.classList.remove('opacity-0');
-        navLogoWhite.classList.add('opacity-100');
-        navLinks.forEach(link => {
-          link.classList.remove('text-gray-700', 'hover:text-gray-900');
-          link.classList.add('text-white', 'hover:text-blue-100');
-        });
-        mobileMenuBtn.classList.remove('text-gray-700', 'hover:text-gray-900');
-        mobileMenuBtn.classList.add('text-white', 'hover:text-blue-100');
-        navCta.classList.remove('bg-gray-900', 'hover:bg-gray-800', 'text-white');
-        navCta.classList.add('bg-white', 'text-blue-700', 'hover:bg-blue-50');
-        mobileCta.classList.remove('bg-gray-900', 'hover:bg-gray-800', 'text-white');
-        mobileCta.classList.add('bg-white', 'text-blue-700', 'hover:bg-blue-50');
+        navLogoWhiteBg.classList.remove('opacity-0');
+        navLogoWhiteBg.classList.add('opacity-100');
       }
 
-      // Always use dark logo and black links (light theme)
-      // Only toggle background/shadow on scroll
-      navLogo.classList.remove('opacity-0');
-      navLogo.classList.add('opacity-100');
-      navLogoWhite.classList.remove('opacity-100');
-      navLogoWhite.classList.add('opacity-0');
+      // Set default styles for nav links (always dark)
       navLinks.forEach(link => {
         link.classList.remove('text-white', 'hover:text-blue-100');
         link.classList.add('text-gray-700', 'hover:text-gray-900');
@@ -367,17 +344,19 @@
       mobileCta.classList.add('bg-gray-900', 'hover:bg-gray-800', 'text-white');
 
       if (isHomePage) {
-        // For home page: toggle background on scroll
+        // For home page: start with white-bg logo, switch on scroll
+        setNavbarTop();
+
         window.addEventListener('scroll', function() {
           if (window.scrollY > 50) {
-            navbar.classList.add('bg-white', 'shadow-sm');
+            setNavbarScrolled();
           } else {
-            navbar.classList.remove('bg-white', 'shadow-sm');
+            setNavbarTop();
           }
         });
       } else {
-        // For other pages: always show white navbar with shadow
-        navbar.classList.add('bg-white', 'shadow-sm');
+        // For other pages: always show regular logo with white navbar
+        setNavbarScrolled();
       }
 
       // Mobile menu toggle
